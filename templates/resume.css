@@ -1,0 +1,225 @@
+/* Resume stylesheet - clean, professional, ATS-friendly */
+/* Designed for pandoc + Chrome headless or weasyprint PDF rendering */
+
+@page {
+    size: letter;
+    margin: 0.6in 0.7in 0.6in 0.7in;
+
+    @bottom-right {
+        content: counter(page) " / " counter(pages);
+        font-size: 8pt;
+        color: #999;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+}
+
+@page :first {
+    @bottom-right {
+        content: none;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.35;
+    color: #222;
+}
+
+/* === HEADER / NAME === */
+h1 {
+    font-size: 20pt;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 2pt;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+}
+
+/* Contact line immediately after h1 */
+h1 + p {
+    font-size: 9pt;
+    color: #555;
+    margin-bottom: 8pt;
+    padding-bottom: 6pt;
+    border-bottom: 1.5pt solid #2c5aa0;
+}
+
+/* === TITLE LINE === */
+h2 {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #2c5aa0;
+    text-transform: uppercase;
+    letter-spacing: 0.8pt;
+    margin-top: 14pt;
+    margin-bottom: 6pt;
+    padding-bottom: 3pt;
+    border-bottom: 0.75pt solid #ccc;
+}
+
+/* First h2 is the title/tagline - style differently */
+h1 + p + h2 {
+    font-size: 10pt;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+    margin-top: 0;
+    margin-bottom: 4pt;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Summary paragraph */
+h1 + p + h2 + p {
+    font-size: 9.5pt;
+    color: #333;
+    margin-bottom: 10pt;
+    line-height: 1.4;
+}
+
+/* === SECTION HEADERS (Experience, Skills, Education) === */
+/* Already covered by h2 above */
+
+/* === COMPANY / ROLE HEADERS === */
+h3 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 10pt;
+    margin-bottom: 2pt;
+}
+
+/* === ROLE TITLES (bold + dates) === */
+p strong {
+    font-weight: 700;
+}
+
+/* === SUBSECTION HEADERS (italic - AI Engineering, IaC, etc.) === */
+em {
+    font-style: italic;
+    color: #2c5aa0;
+    font-weight: 600;
+    font-size: 9pt;
+}
+
+/* === BULLET POINTS === */
+ul {
+    margin-left: 14pt;
+    margin-bottom: 6pt;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 2pt;
+    padding-left: 2pt;
+    line-height: 1.35;
+}
+
+li::marker {
+    color: #2c5aa0;
+}
+
+/* === HORIZONTAL RULES (section dividers) === */
+hr {
+    border: none;
+    border-top: 0.5pt solid #ddd;
+    margin: 8pt 0;
+}
+
+/* === LINKS === */
+a {
+    color: #2c5aa0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* === PARAGRAPHS === */
+p {
+    margin-bottom: 3pt;
+}
+
+/* Role title paragraphs with pipe separator for dates */
+h3 + p,
+h3 + p + p,
+h3 + p + p + p {
+    margin-bottom: 2pt;
+}
+
+/* === SKILLS SECTION === */
+/* Skills are rendered as paragraphs with bold category labels */
+/* Keep them compact */
+
+/* === PAGE BREAK CONTROL === */
+
+/*
+ * Prevent orphaned headings at the bottom of a page.
+ * Both legacy (page-break-*) and modern (break-*) properties
+ * are set for broad engine support (Chrome, weasyprint, print).
+ */
+
+/* Section headers (EXPERIENCE, SKILLS, EDUCATION) never land at page bottom */
+h2 {
+    page-break-after: avoid;
+    break-after: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Company names never land at page bottom */
+h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Role title lines (bold text with dates) stay with the heading above */
+h3 + p,
+h3 + p + p,
+h3 + p + p + p {
+    page-break-before: avoid;
+    break-before: avoid;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* Subsection labels (AI Engineering, IaC, etc.) stay with their bullets */
+p:has(> em) {
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* Fallback for engines that don't support :has() */
+p em {
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* Bullet points don't split across pages */
+li {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Keep bullet lists from splitting away from their preceding heading/label */
+ul {
+    page-break-before: avoid;
+    break-before: avoid;
+}
+
+/* Horizontal rules (section dividers) can break -- they're natural boundaries */
+hr {
+    page-break-before: auto;
+    break-before: auto;
+}
