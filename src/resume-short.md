@@ -43,11 +43,14 @@ _CI/CD Pipeline Engineering_
 - Implemented Change Advisory Board (CAB) ticket gating for production Terraform applies.
 - Built automated monthly version-check-and-rebuild pipelines for Vault and Terraform images.
 
-_Configuration Management & Operations_
+_Ansible & Configuration Management_
 
-- Managed Ansible playbooks and roles across two datacenters, parameterized for staging and production domains.
+- Managed 47+ Ansible roles and 22+ playbooks across two datacenters, covering hypervisors, VMs, Vault, LDAP, DNS, logging, monitoring, and network devices.
+- Parameterized playbooks and roles to support both staging and production domains from a single codebase.
+- Built scheduled CI pipelines for automated certificate renewal, AWS IAM key rotation, and Vault KMS key refresh.
 - Deployed and configured Vault, Fluent Bit, Unbound DNS, LDAP, and other core services to staging infrastructure.
-- Authored 95 merge requests (82 merged) and 171 commits across core infrastructure repos. Reviewed and merged 65 MRs as a technical gatekeeper.
+- Maintained production and staging Ansible inventories as independently versioned repositories with image digest tracking and promotion workflows.
+- Authored over 2,000 commits across 67 repositories. Served as a code reviewer and technical gatekeeper for infrastructure changes.
 
 **Site Reliability Engineer** | Aug 2023 - Aug 2024
 
@@ -111,24 +114,24 @@ _Configuration Management & Operations_
 
 ## SKILLS & TECHNOLOGIES
 
-**Infrastructure & IaC:** Terraform, Ansible, HashiCorp Vault (Enterprise, FIPS), HCL, Jinja2
-**Containers & Image Security:** Docker, Podman, Buildah, Skopeo, Notation (image signing), FIPS 140-3, DISA STIG
-**Cloud:** AWS GovCloud (ECR, KMS, IAM, S3, Route 53), Azure (ACR, Blob Storage), EKS
-**CI/CD:** GitLab CI/CD, Jenkins, GitHub Actions
-**Monitoring & Observability:** Prometheus, Grafana, Alertmanager, Thanos, Fluent Bit, Vector, Zabbix
-**Languages & Scripting:** Bash, Python, Go (read/modify), HCL, YAML
-**AI & Automation:** Claude (Opus, Sonnet), GPT, Gemini, Grok, GitHub Copilot, prompt engineering, AI agent context design
-**Networking & DNS:** NSD, Unbound, DNSSEC, OpenLDAP, BIG-IP, NGINX / NGINX Plus, Keepalived (VRRP)
-**Compliance:** FedRAMP, FIPS 140-3, CVE/POAM lifecycle management, AWS Inspector
+**Infrastructure & IaC:** Terraform, Ansible, HashiCorp Vault (Enterprise, FIPS), HCL, Jinja2<br>
+**Containers & Image Security:** Docker, Podman, Buildah, Skopeo, Notation (image signing), FIPS 140-3, DISA STIG<br>
+**Cloud:** AWS GovCloud (ECR, EKS, KMS, IAM, S3, Route 53), Azure (ACR, Blob Storage)<br>
+**CI/CD:** GitLab CI/CD, Jenkins, GitHub Actions<br>
+**Monitoring & Observability:** Prometheus, Grafana, Alertmanager, Thanos, Fluent Bit, Vector, Zabbix<br>
+**Languages & Scripting:** Bash, Python, Go (read/modify), HCL, YAML<br>
+**AI & Automation:** Claude (Opus, Sonnet), GPT, Gemini, Grok, GitHub Copilot, prompt engineering, AI agent context design<br>
+**Networking & DNS:** NSD, Unbound, DNSSEC, OpenLDAP, BIG-IP, NGINX / NGINX Plus, Keepalived (VRRP)<br>
+**Compliance:** FedRAMP, FIPS 140-3, CVE/POAM lifecycle management, AWS Inspector<br>
 **Operating Systems:** RHEL 9 / UBI 9, Ubuntu, CentOS, macOS
 
 ---
 
 ## EDUCATION & CERTIFICATIONS
 
-**Bachelor of Science, Information Technology** -- Rochester Institute of Technology (2011)
-**HashiCorp Certified: Vault Associate (003)** -- Issued Aug 2025, Expires Aug 2027
-**F5 Accredited Technical Specialist, Distributed Cloud Secure Multi-Cloud Networking** -- Issued May 2024
+**Bachelor of Science, Information Technology** -- Rochester Institute of Technology (2011)<br>
+**HashiCorp Certified: Vault Associate (003)** -- Issued Aug 2025, Expires Aug 2027<br>
+**F5 Accredited Technical Specialist, Distributed Cloud Secure Multi-Cloud Networking** -- Issued May 2024<br>
 **CompTIA Security+** -- Expired Dec 2016
 
 ---

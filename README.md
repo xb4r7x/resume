@@ -7,6 +7,7 @@ files, run `make`, and get styled PDFs.
 
 ```
 resume/
+  AGENTS.md               # AI agent context (role, metrics, writing conventions)
   src/
     resume-short.md       # 2-page resume (trimmed older roles)
     resume-full.md        # Full CV (all historical detail)
@@ -131,13 +132,26 @@ devops:
 	@$(BUILD) $(SRC_DIR)/resume-devops.md
 ```
 
+## CI / GitHub Actions
+
+A GitHub Actions workflow (`.github/workflows/build.yml`) builds PDFs and
+HTML automatically on every push to `main` that changes `src/`, `templates/`,
+`scripts/`, or the `Makefile`. It commits the built files back to the repo.
+
+The workflow can also be triggered manually from the Actions tab in GitHub
+(`workflow_dispatch`).
+
+Built files are force-added to git (`git add -f`) so they remain in
+`.gitignore` for local development but are still tracked via CI.
+
 ## Version Control
 
 The repo is set up for git:
 
 - `src/` and `templates/` are versioned (your source of truth).
-- `output/` is gitignored (build artifacts).
-- Diffs are clean because everything is plain text.
+- `output/` is gitignored for local development.
+- CI builds and commits `output/` on pushes to `main`.
+- Diffs are clean because source files are plain text.
 
 ```bash
 git init

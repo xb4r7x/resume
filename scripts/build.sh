@@ -223,7 +223,7 @@ main() {
             pandoc)     build_pdf_pandoc "${md}" ;;
             html-only)  build_html_only "${md}" ;;
         esac
-        ((count++))
+        count=$((count + 1))
     done
 
     echo
